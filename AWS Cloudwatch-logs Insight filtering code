@@ -1,0 +1,3 @@
+filter eventSource="signin.amazonaws.com" and eventName="ConsoleLogin" and responseElements.Consologin="Failure"
+| stats count(*) as Total_Count by sourceIPAddress as Source_IP, errorMessage as Reason, awsRegion as AWS_Region, userIdentity.arn as IAM_Arn,
+additionalEventData.MFAUsed as MFA_Used
